@@ -11,10 +11,13 @@
 <ul>
     {% for entry in entries %}
     <li>
-       <p>{{ entry.date_added|date:'d M, Y H:i' }}</p>
+
+        <p>{{ entry.date_added|date:'d M, Y H:i' }}</p>
         <p>
             {{ entry.text|linebreaks }}
         </p>
+        <img src="{{ entry.ex_data.url }}">
+
     </li>
     {% empty %}
     <li>
