@@ -3,6 +3,9 @@
 {% block content %}
 
 <p>Topics</p>
+<p>
+    <a href="{% url 'learning_logs:new_topic' %}">Add a new topic</a>
+</p>
 <ul>
     {% for topic in topics %}
         <li>
@@ -15,6 +18,6 @@
     {% endfor %}
 </ul>
 
-<a href="{% url 'learning_logs:new_topic' %}">Add a new topic</a>
+
 
 {% endblock content %}
