@@ -4,17 +4,33 @@
     <meta charset="UTF-8">
 
 </head>
-<body>
-    <p>
-        <a href="{% url 'learning_logs:index' %}">Learning Log</a> -
-        <a href="{% url 'learning_logs:topics' %}">Topics</a> -
-        {% if user.is_authenticated %}
-            Hello, {{ user.username }}!
+<header>
+
+     <div style="display: inline;">
+
+         <a href="{% url 'learning_logs:index' %}">Learning Log</a> -
+         <a href="{% url 'learning_logs:topics' %}">Topics</a> -
+
+         {% if user.is_authenticated %}
+
+         Hello, {{ user.username }}!
+         <form style="display: inline;" action="{% url 'users:logout' %}" method="post">
+             {% csrf_token %}
+             {{ form.as_table }}
+             <button type="submit">Logout</button>
+         </form>
+
         {% else %}
             <a href="{% url 'users:login' %}">Log in</a>
         {% endif %}
-    </p>
 
-{% block content%}{% endblock content%}
+     </div>
+
+</header>
+<body>
+    {% block content%}{% endblock content%}
 </body>
+<footer>
+
+</footer>
 </html>
