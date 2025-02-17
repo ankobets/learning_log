@@ -13,7 +13,7 @@
 
          {% if user.is_authenticated %}
 
-         Hello, {{ user.username }}!
+         Hello, {{ user.username }}! -
          <form style="display: inline;" action="{% url 'users:logout' %}" method="post">
              {% csrf_token %}
              {{ form.as_table }}
@@ -21,7 +21,9 @@
          </form>
 
         {% else %}
-            <a href="{% url 'users:login' %}">Log in</a>
+         <a href="{% url 'users:login' %}">Log in - </a>
+         <a href="{% url 'users:register' %}">Register</a>
+
         {% endif %}
 
      </div>
