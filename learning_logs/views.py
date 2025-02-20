@@ -49,9 +49,6 @@ def new_entry(request, topic_id):
             new_entry.topic = topic
             new_entry.save()
 
-            # Getting the current instance object to display in the template
-            img_object = form.instance
-
             return redirect('learning_logs:topic', topic_id=topic_id)
     else:
         form = EntryForm()
