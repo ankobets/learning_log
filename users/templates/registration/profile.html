@@ -1,0 +1,12 @@
+{% extends "learning_logs/base.html" %}
+
+{% block content %}
+<h3>This is the profile page for {{user.username}}</h3>
+<p> -- {{ user.profile }}</p>
+<p>{{user.email}}</p>
+<img src="{{ user.profile.avatar.url }}">
+<p>{{user.profile.about}}</p>
+<a href="{% url 'users:edit_profile' %}">Fill or edit your profile:</a>
+
+
+{% endblock content %}
