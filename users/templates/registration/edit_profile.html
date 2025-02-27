@@ -1,14 +1,26 @@
 {% extends "learning_logs/base.html" %}
 
+{% load bootstrap4 %}
+{% block page_header %}
+
+<h2>
+    Editing your profile
+</h2>
+
+{% endblock page_header %}
+
 {% block content %}
 
-<form method="post" action="{% url 'users:edit_profile' %}" enctype="multipart/form-data">
+<form method="post" action="{% url 'users:edit_profile' %}" enctype="multipart/form-data" class="form">
     {% csrf_token %}
-    {{ u_form.as_p }}
-    {{ p_form.as_p }}
+    {% bootstrap_form u_form %}
+    {% bootstrap_form p_form %}
+    {% buttons %}
+    <button name="submit" class="btn btn-primary">
+        Save changes
+    </button>
+    {% endbuttons %}
 
-
-    <button name="submit">Edit</button>
     <input type="hidden" name="next" value="{% url 'users:profile' %}">
 
 </form>

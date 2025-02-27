@@ -5,6 +5,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" >
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
     <title>Learning Log</title>
 
     {% bootstrap_css %}
@@ -13,7 +17,7 @@
 </head>
 
 <body>
-    <nav class=" navbar navbar-expand-md navbar-light bg-light  mb-2 boarder">
+    <nav class=" navbar navbar-expand-md navbar-light bg-secondary  mb-2 boarder">
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -68,7 +72,7 @@
                 {% if user.is_authenticated %}
                 <form action="{% url 'users:logout' %}" method='post'>
                     {% csrf_token %}
-                    <button name='submit' class='btn btn-outline-secondary btn-sm'>
+                    <button name='submit' class='btn btn-outline-light btn-sm'>
                         Log out
                     </button>
                 </form>
@@ -79,7 +83,7 @@
 
     <main role="main" class="container-fluid">
         <div class="pb-2 mb-2 border-bottom">
-            {% block page-header %}{% endblock page-header %}
+            {% block page_header %}{% endblock page_header %}
         </div>
         <div>
             {% block content%}{% endblock content%}

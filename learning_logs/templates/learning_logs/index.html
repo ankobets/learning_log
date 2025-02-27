@@ -1,11 +1,33 @@
 {% extends "learning_logs/base.html" %}
 
-{% block content %}
+{% block page_header %}
 
-<p>
-    Learning Log helps you keep track of your learning, for any topic you're
-learning about.
-</p>
+<div class="container py-5 custom-bg">
 
-{% endblock content %}
+    <style>
+        .custom-bg {
+        background-color: #cfd3d8;
+        }
+    </style>
+
+    <h5 class="display-3">
+        Track your learning
+    </h5>
+
+    <p class="lead">
+        Make your onw Learning Log,  and keep a list of topics you're learning about.
+        Whenever you learn something new about a topic, make an entry summarizing you've learned.
+    </p>
+
+    <a class="btn btn-lg btn-secondary" href="{% url 'users:register' %}">
+        Register &raquo;
+    </a>
+    <a class="btn btn-lg btn-secondary" href="{% url 'users:login' %}">
+        Log in &raquo;
+    </a>
+
+</div>
+
+
+{% endblock page_header %}
 
