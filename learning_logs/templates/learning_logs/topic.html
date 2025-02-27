@@ -1,35 +1,51 @@
 {% extends "learning_logs/base.html" %}
 
+{%  block page_header %}
+
+<h3>Topic: {{ topic }}</h3>
+
+{% endblock page_header %}
+
 {% block content %}
 
-<p>
-    Topic: {{ topic }}
-</p>
-<p>
-    Entries:
-</p>
-<p>
+<h6>
     <a href="{% url 'learning_logs:new_entry' topic.id %}">Add a new entry</a>
-</p>
+</h6>
+
+<div class="container py-5 custom-bg">
+
+    <style>
+        .custom-bg {
+        background-color: #cfd3d8;
+        }
+    </style>
 <ul>
     {% for entry in entries %}
-    <li>
+    <div class="card mb-3 container-fluid">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="{{ entry.ex_data.url }}" alt="..." class="card-img-top ">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{ entry.date_added|date:'M d, Y H:i' }}</h5>
+                    <p class="card-text">{{ entry.text|linebreaks }}</p>
+                    <p class="card-text">
+                        <small class="text-muted">
+                            <a href="{% url 'learning_logs:edit_entry' entry.id %}">Edit this entry</a>
+                        </small>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        <p>{{ entry.date_added|date:'d M, Y H:i' }}</p>
-        <p>
-            {{ entry.text|linebreaks }}
-        </p>
-        <img src="{{ entry.ex_data.url }}">
-        <p>
-            <a href="{% url 'learning_logs:edit_entry' entry.id %}">Edit this entry</a>
-        </p>
-
-    </li>
     {% empty %}
-    <li>
+    <p>
         There are no entries for this topic yet.
-    </li>
+    </p>
     {% endfor %}
 </ul>
+</div>
 
 {% endblock content %}

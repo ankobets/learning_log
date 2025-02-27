@@ -1,7 +1,13 @@
 {% extends "learning_logs/base.html" %}
 
 {% block content %}
+<div class="container py-5 custom-bg">
 
+    <style>
+        .custom-bg {
+        background-color: #cfd3d8;
+        }
+    </style>
 <div class=" container-fluid card" style="width: 25rem;">
     <img src="{{ user.profile.avatar.url }}" class="card-img-top" alt="...">
     <div class="card-body">
@@ -11,6 +17,7 @@
         <p class="card-text">About: {{user.profile.about}}</p>
         <a href="{% url 'users:edit_profile' %}" class="btn btn-secondary">Fill or edit profile</a>
   </div>
+</div>
 </div>
 
 {% endblock content %}

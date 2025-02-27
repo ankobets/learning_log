@@ -1,23 +1,40 @@
 {% extends "learning_logs/base.html" %}
 
+{% block page_header %}
+<h1>
+    Topics:
+</h1>
+{% endblock page_header %}
+
 {% block content %}
 
-<p>Topics:</p>
+<div class="container py-5 custom-bg">
+
+    <style>
+        .custom-bg {
+        background-color: #cfd3d8;
+        }
+    </style>
 <ul>
     {% for topic in topics %}
         <li>
-            <a href="{% url 'learning_logs:topic' topic.id %}">{{ topic }}</a>
+            <h3>
+                <a href="{% url 'learning_logs:topic' topic.id %}">{{ topic }}</a>
+            </h3>
         </li>
     {% empty %}
         <li>
-            No topic has been added yet
+            <h3>
+                No topic has been added yet
+            </h3>
         </li>
     {% endfor %}
 </ul>
 
-<p>
+<h3>
     <a href="{% url 'learning_logs:new_topic' %}">Add a new topic</a>
-</p>
+</h3>
+</div>
 
 
 
